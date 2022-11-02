@@ -11,7 +11,12 @@ while True:
     print("3. Search a book")
     print("4. Update a book")
     print("5. Delete a book")
-    print("6.exit")
+    print("6. Search book starting with a specific letter")
+    print("7. Display books in each cateogory")
+    print("8. View books from a specific category")
+    print("9. Display the totalamount for a book on return date")
+    print("10.exit")
+
 
     choice = int(input("Enter an option: "))
     if(choice == 1):
@@ -66,6 +71,15 @@ while True:
         mycursor.execute(sql)
         mydb.commit()
         print("Book data deleted successfully.")
+
+    elif(choice == 6):
+        print("Search a book by letter")
+        bletter = input("Enter the letter to search: ")
+        sql = "SELECT `bookname`, `author`, `language`, `category`, `charge/day` FROM `books` WHERE `bookname` LIKE '"+bletter+"%'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
        
-    elif(choice==6):
+    elif(choice==10):
         break
