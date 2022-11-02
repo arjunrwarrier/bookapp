@@ -30,7 +30,12 @@ while True:
         print("book data inserted successfully.")
         
     elif(choice == 2):
-        print("View book")
+        print("View books")
+        sql = "SELECT * FROM `books`"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
  
     elif(choice == 3):
         print("Searching a book")
